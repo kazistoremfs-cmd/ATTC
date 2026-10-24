@@ -215,7 +215,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     // Fallback to high-res sparks photo if any image path is broken
-                    e.currentTarget.src = '/src/assets/images/hero_welding_sparks_1792757587259.jpg';
+                    e.currentTarget.src = '/assets/images/hero_welding_sparks_1792757587259.jpg';
                   }}
                 />
 

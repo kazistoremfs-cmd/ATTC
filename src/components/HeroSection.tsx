@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Image with Cinematic Industrial Dark Scrim */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_welding_sparks_1792757587259.jpg"
+          src="/assets/images/hero_welding_sparks_1792757587259.jpg"
           alt="Al-Zahid Technical Training Center Industrial Welding Practice"
           className="w-full h-full object-cover object-center opacity-35"
           referrerPolicy="no-referrer"
