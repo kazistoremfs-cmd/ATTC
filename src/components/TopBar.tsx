@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wrench, Phone, MapPin, Globe, Menu, X, Award, MessageSquare } from 'lucide-react';
+import { Phone, Globe, Menu, X, MessageSquare } from 'lucide-react';
 import { Language } from '../types/institute';
 import { INSTITUTE_INFO } from '../data/instituteData';
 
@@ -15,38 +15,7 @@ export const TopBar: React.FC<TopBarProps> = ({ lang, onToggleLang, onEnquireCli
   const isBn = lang === 'bn';
 
   return (
-    <>
-      {/* Top Location and Accreditation Strip */}
-      <div className="bg-[#08121E] text-slate-300 text-xs py-2 px-4 border-b border-slate-800/80">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-4 flex-wrap">
-            <span className="inline-flex items-center gap-1.5 text-slate-300">
-              <MapPin className="w-3.5 h-3.5 text-[#E59E24] shrink-0" />
-              <span className="truncate">{isBn ? INSTITUTE_INFO.addressBn : INSTITUTE_INFO.addressEn}</span>
-            </span>
-            <span className="hidden sm:inline-block text-slate-600">|</span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-slate-300">
-              <Award className="w-3.5 h-3.5 text-[#E59E24] shrink-0" />
-              <span>{isBn ? 'BTEB কোড: ৬৪০৩৩' : 'BTEB: 64033'}</span>
-              <span className="text-slate-600">·</span>
-              <span className="font-mono">{isBn ? 'EIIN: ১৩৫৫৫৭' : 'EIIN: 135557'}</span>
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href={`tel:${INSTITUTE_INFO.phoneCall}`}
-              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-[#E59E24] transition-colors"
-            >
-              <Phone className="w-3 h-3 text-[#E59E24]" />
-              <span className="font-mono tabular-nums">{INSTITUTE_INFO.phoneDisplay}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-8">
           
           {/* Brand Wordmark Zone */}
@@ -182,6 +151,5 @@ export const TopBar: React.FC<TopBarProps> = ({ lang, onToggleLang, onEnquireCli
           </div>
         )}
       </header>
-    </>
   );
 };
