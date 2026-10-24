@@ -69,7 +69,7 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
             onError={(e) => {
-              e.currentTarget.src = '/assets/images/hero_welding_sparks_1792757587259.jpg';
+              e.currentTarget.src = './assets/images/hero_welding_sparks_1792757587259.jpg';
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

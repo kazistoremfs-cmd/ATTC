@@ -181,7 +181,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
             <div className="p-5 bg-gradient-to-r from-[#0C1A2C] to-[#12233B] border border-slate-700/80 rounded flex items-center gap-4">
               <div className="w-12 h-12 rounded-full border border-slate-600 bg-white flex items-center justify-center p-1 shrink-0 overflow-hidden shadow-xs">
                 <img
-                  src="/assets/bteb-logo.png"
+                  src="./assets/bteb-logo.png"
                   alt="BTEB Logo"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"

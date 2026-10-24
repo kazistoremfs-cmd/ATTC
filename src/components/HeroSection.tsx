@@ -21,7 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Image with Cinematic Industrial Dark Scrim */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/assets/images/hero_welding_sparks_1792757587259.jpg"
+          src="./assets/images/hero_welding_sparks_1792757587259.jpg"
           alt="Al-Zahid Technical Training Center Industrial Welding Practice"
           className="w-full h-full object-cover object-center opacity-35"
           referrerPolicy="no-referrer"
@@ -98,7 +98,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="mt-2 sm:mt-0 sm:ml-auto inline-flex items-center gap-3.5 px-4 py-2.5 bg-[#0C1A2C]/90 border border-slate-700/80 rounded">
               <div className="w-10 h-10 rounded-full border border-slate-600 overflow-hidden bg-white flex items-center justify-center p-0.5 shrink-0 shadow-xs">
                 <img
-                  src="/assets/bteb-logo.png"
+                  src="./assets/bteb-logo.png"
                   alt="Bangladesh Technical Education Board (BTEB) Official Logo"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"

@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           <div className="flex items-center gap-3">
             <div className="w-11 h-11 rounded-full overflow-hidden border border-slate-700 bg-slate-900 flex items-center justify-center shrink-0">
               <img
-                src="/assets/aistudio/ATTC_logo_1f4e0eb2.png"
+                src="./assets/aistudio/ATTC_logo_1f4e0eb2.png"
                 alt="Al-Zahid Technical Training Center Official Logo"
                 className="w-full h-full object-cover"
               />
