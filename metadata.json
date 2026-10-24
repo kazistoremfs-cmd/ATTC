@@ -1,0 +1,6 @@
+{
+  "name": "Al-Zahid Technical Training Center",
+  "description": "BTEB-approved vocational technical training institute in Ashuganj, Brahmanbaria (Reg 64033, EIIN 135557) offering practical 1G-6G welding, pipe fitting, and fabrication courses for local and overseas careers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
