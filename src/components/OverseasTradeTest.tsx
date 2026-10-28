@@ -42,7 +42,7 @@ export const OverseasTradeTest: React.FC<OverseasTradeTestProps> = ({ lang, onPr
   ];
 
   return (
-    <section id="overseas" className="py-20 bg-white border-b border-slate-200">
+    <section id="overseas" className="py-20 bg-white border-b border-slate-200 overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}

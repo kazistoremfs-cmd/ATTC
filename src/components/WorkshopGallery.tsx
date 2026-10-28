@@ -13,7 +13,7 @@ export const WorkshopGallery: React.FC<WorkshopGalleryProps> = ({ lang, onTalkWi
   const isBn = lang === 'bn';
 
   return (
-    <section id="workshop" className="py-20 bg-[#F4F3EE] border-b border-neutral-200">
+    <section id="workshop" className="py-20 bg-[#F4F3EE] border-b border-neutral-200 overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Section Header matching Screenshot */}

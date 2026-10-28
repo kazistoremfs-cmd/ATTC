@@ -81,7 +81,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
   };
 
   return (
-    <section id="contact" className="py-20 bg-[#071321] text-white">
+    <section id="contact" className="py-20 bg-[#071321] text-white overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}

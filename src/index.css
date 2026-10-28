@@ -1,27 +1,41 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --font-heading: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-bn: 'Hind Siliguri', sans-serif;
-  }
+:root {
+  /* English/Latin is rendered by Inter; any Bengali glyph immediately falls through to Hind Siliguri */
+  --font-sans: 'Inter', 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Montserrat', 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-bn: 'Hind Siliguri', 'Noto Sans Bengali', 'Inter', system-ui, -apple-system, sans-serif;
+}
 
-  html {
-    scroll-behavior: smooth;
-    font-family: var(--font-sans);
-  }
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
-  body {
-    background-color: #F8F9FA;
-    color: #1E293B;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+body {
+  background-color: #F8F9FA;
+  color: #1E293B;
+  font-family: var(--font-sans);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  h1, h2, h3, h4, .font-heading {
-    font-family: var(--font-heading);
-  }
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
 }
 
 .font-condensed {

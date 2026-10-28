@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
   };
 
   return (
-    <footer className="bg-[#071321] text-slate-400 text-xs border-t border-slate-800">
+    <footer className="bg-[#071321] text-slate-400 text-xs border-t border-slate-800 overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         
         {/* Top Tier: Brand Wordmark + Back to Top */}

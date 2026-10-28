@@ -174,7 +174,7 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
         {/* 3 Course Fee Package Cards Carousel Slider */}
         <div
           ref={carouselRef}
-          className="flex items-stretch gap-6 sm:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth py-6 px-1 no-scrollbar"
+          className="flex items-stretch gap-6 sm:gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth py-6 px-1 no-scrollbar w-full max-w-full"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {FEE_PACKAGES.map((pkg, idx) => {
@@ -185,14 +185,14 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
               <div
                 key={pkg.id}
                 onClick={() => scrollToIndex(idx)}
-                className={`w-[86vw] sm:w-[400px] md:w-[440px] lg:w-[460px] shrink-0 snap-center rounded-2xl flex flex-col justify-between transition-all duration-300 relative cursor-pointer ${
+                className={`w-[84vw] max-w-[340px] sm:max-w-none sm:w-[380px] md:w-[420px] lg:w-[440px] shrink-0 snap-center rounded-2xl flex flex-col justify-between transition-all duration-200 relative cursor-pointer ${
                   isFeatured
-                    ? 'bg-slate-900 text-white border-2 border-[#E59E24] shadow-2xl'
+                    ? 'bg-slate-900 text-white border-2 border-[#E59E24] shadow-2xl ring-2 ring-[#E59E24]/50'
                     : 'bg-[#F8F9FA] text-slate-900 border-2 border-slate-300 hover:border-slate-400 shadow-md'
                 } ${
                   isActive
-                    ? 'ring-4 ring-[#0F243E]/20 scale-[1.01] sm:scale-105'
-                    : 'opacity-90 hover:opacity-100 scale-98 sm:scale-100'
+                    ? 'ring-4 ring-[#0F243E]/20 shadow-2xl'
+                    : 'opacity-90 hover:opacity-100 shadow-sm'
                 }`}
               >
                 {/* Popular / Best Value Ribbon */}

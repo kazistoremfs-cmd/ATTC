@@ -25,6 +25,7 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem('az_lang', lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   // Handle URL hash changes for deep linking to course pages
@@ -100,7 +101,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans ${lang === 'bn' ? 'font-bengali' : ''}`}>
+    <div className={`min-h-screen flex flex-col font-sans w-full max-w-full overflow-x-hidden relative ${lang === 'bn' ? 'font-bengali' : ''}`}>
       
       {/* Top Bar with Language Switcher and Enquire CTA */}
       <TopBar

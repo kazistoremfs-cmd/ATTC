@@ -89,7 +89,7 @@ export const CourseDetailPage: React.FC<CourseDetailPageProps> = ({
   const otherCourses = COURSES.filter((c) => c.id !== course.id);
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-slate-800 pb-20">
+    <div className="min-h-screen bg-[#F8F9FA] text-slate-800 pb-20 w-full max-w-full overflow-x-hidden">
       
       {/* Top Breadcrumb & Action Header */}
       <div className="bg-white border-b border-slate-200 sticky top-[69px] z-30 shadow-xs">
