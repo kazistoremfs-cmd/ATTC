@@ -43,10 +43,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </span>
           </div>
 
-          {/* Admissions Open Indicator */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-[#E59E24]/40 bg-[#0F243E]/80 text-[#E59E24] text-xs font-semibold uppercase tracking-wider rounded">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E59E24]" />
-            <span>{isBn ? 'নতুন ব্যাচে ভর্তি চলছে' : 'Admissions Open'}</span>
+          {/* Admissions Open & Specialty Trust Indicators */}
+          <div className="flex flex-wrap items-center gap-2.5 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#E59E24]/40 bg-[#0F243E]/90 text-[#E59E24] text-xs font-semibold uppercase tracking-wider rounded shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-[#E59E24] animate-pulse" />
+              <span>{isBn ? 'নতুন ব্যাচে ভর্তি চলছে' : 'Admissions Open'}</span>
+            </div>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 border border-emerald-500/40 bg-emerald-950/80 text-emerald-300 text-xs font-medium rounded shadow-xs">
+              <span className="font-bold text-white">{isBn ? 'প্রধান ট্রেইনার:' : 'Lead Trainer:'}</span>
+              <span>{isBn ? 'দক্ষ সুপার ডুপ্লেক্স ওয়েল্ডার (Super Duplex Welder)' : 'Certified Super Duplex Welder'}</span>
+            </div>
+
+            <div className="inline-flex items-center gap-1 px-3 py-1 border border-amber-400/40 bg-amber-950/60 text-amber-200 text-xs font-semibold rounded shadow-xs">
+              <span>{isBn ? 'কোর্স ফি মাত্র ৪০,০০০৳ হতে শুরু' : 'Fees Starting from BDT 40,000'}</span>
+            </div>
           </div>
 
           {/* Primary Headline */}

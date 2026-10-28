@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Wrench, GraduationCap } from 'lucide-react';
+import { UserCheck, ShieldCheck, Award } from 'lucide-react';
 import { Language } from '../types/institute';
 import { KEY_BENEFITS } from '../data/instituteData';
 
@@ -11,9 +11,9 @@ export const FeaturesStrip: React.FC<FeaturesStripProps> = ({ lang }) => {
   const isBn = lang === 'bn';
 
   const icons = [
-    <ShieldCheck key="1" className="w-6 h-6 text-[#E59E24] shrink-0" />,
-    <Wrench key="2" className="w-6 h-6 text-[#E59E24] shrink-0" />,
-    <GraduationCap key="3" className="w-6 h-6 text-[#E59E24] shrink-0" />,
+    <UserCheck key="1" className="w-6 h-6 text-[#E59E24] shrink-0" />,
+    <ShieldCheck key="2" className="w-6 h-6 text-[#E59E24] shrink-0" />,
+    <Award key="3" className="w-6 h-6 text-[#E59E24] shrink-0" />,
   ];
 
   return (
@@ -25,16 +25,16 @@ export const FeaturesStrip: React.FC<FeaturesStripProps> = ({ lang }) => {
           <div className="flex items-center gap-3 mb-2">
             <span className="w-8 h-0.5 bg-[#E59E24]" />
             <span className="text-xs font-bold tracking-widest text-slate-600 uppercase">
-              {isBn ? 'বাস্তব শিক্ষার শুরু' : 'A Practical Start'}
+              {isBn ? 'আমাদের বিশেষত্ব' : 'Our Key Specialties'}
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F243E] tracking-tight font-condensed">
-            {isBn ? 'হাতে-কলমে কাজ শিখে ক্যারিয়ার গড়ুন।' : 'Learn by doing.'}
+            {isBn ? 'দক্ষ ট্রেইনার, কোয়ালিটি ও সরকারি সার্টিফিকেট' : 'Certified Excellence, Real Mastery.'}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl">
             {isBn
-              ? 'থিওরি বা ক্লাসরুমের সীমাবদ্ধতা নয়, আল-জাহিদ সেন্টারে আপনি প্রতিদিন সরাসরি ইন্ডাস্ট্রিয়াল মেশিনারিজ ও টুলে কাজ শিখবেন।'
-              : 'Real tools, real sparks, and real standards. Every training hour builds the physical confidence employers look for.'}
+              ? 'আন্তর্জাতিক মানের বাস্তব প্রশিক্ষণ ও সরকারি সনদ সহকারে আপনার কারিগরি ক্যারিয়ার গড়ে তুলুন।'
+              : 'Super Duplex Welder mentorship, 100% quality standards, and official BTEB government recognized certification.'}
           </p>
         </div>
 

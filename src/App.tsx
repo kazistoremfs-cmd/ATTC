@@ -3,13 +3,15 @@ import { TopBar } from './components/TopBar';
 import { HeroSection } from './components/HeroSection';
 import { FeaturesStrip } from './components/FeaturesStrip';
 import { CourseCatalog } from './components/CourseCatalog';
-import { CourseDetailModal } from './components/CourseDetailModal';
+import { CoursePricingSection } from './components/CoursePricingSection';
+import { CourseDetailPage } from './components/CourseDetailPage';
 import { WorkshopGallery } from './components/WorkshopGallery';
 import { OverseasTradeTest } from './components/OverseasTradeTest';
 import { InquiryForm } from './components/InquiryForm';
 import { AdmissionTokenModal } from './components/AdmissionTokenModal';
 import { Footer } from './components/Footer';
 import { Course, InquiryFormData, Language } from './types/institute';
+import { COURSES } from './data/instituteData';
 
 export default function App() {
   const [lang, setLang] = useState<Language>(() => {
@@ -17,7 +19,7 @@ export default function App() {
     return (saved === 'en' || saved === 'bn') ? saved : 'bn';
   });
 
-  const [activeCourseModal, setActiveCourseModal] = useState<Course | null>(null);
+  const [selectedCoursePage, setSelectedCoursePage] = useState<Course | null>(null);
   const [inquiryCourse, setInquiryCourse] = useState<Course | null>(null);
   const [voucherData, setVoucherData] = useState<{ data: InquiryFormData; token: string } | null>(null);
 
@@ -25,23 +27,76 @@ export default function App() {
     localStorage.setItem('az_lang', lang);
   }, [lang]);
 
+  // Handle URL hash changes for deep linking to course pages
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#course/') || hash.startsWith('#course-')) {
+        const courseId = hash.replace(/^#(course\/|course-)/, '');
+        const matchedCourse = COURSES.find((c) => c.id === courseId);
+        if (matchedCourse) {
+          setSelectedCoursePage(matchedCourse);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+      }
+      // If hash is not a course, show the main landing page
+      if (hash === '' || hash === '#' || hash.startsWith('#courses') || hash.startsWith('#workshop') || hash.startsWith('#overseas') || hash.startsWith('#contact') || hash.startsWith('#about')) {
+        setSelectedCoursePage(null);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const toggleLanguage = () => {
     setLang((prev) => (prev === 'bn' ? 'en' : 'bn'));
   };
 
+  const handleOpenCoursePage = (course: Course) => {
+    setSelectedCoursePage(course);
+    window.location.hash = `course/${course.id}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToCourses = () => {
+    setSelectedCoursePage(null);
+    window.location.hash = 'courses';
+    setTimeout(() => {
+      const el = document.getElementById('courses');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 80);
+  };
+
   const scrollToCourses = () => {
-    const el = document.getElementById('courses');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (selectedCoursePage) {
+      handleBackToCourses();
+    } else {
+      const el = document.getElementById('courses');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const scrollToContact = () => {
+    if (selectedCoursePage) {
+      const el = document.getElementById('enroll-form');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
     const el = document.getElementById('contact');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleSelectCourseForEnquiry = (course: Course) => {
+    setSelectedCoursePage(null);
     setInquiryCourse(course);
-    scrollToContact();
+    setTimeout(() => {
+      scrollToContact();
+    }, 80);
   };
 
   return (
@@ -54,56 +109,71 @@ export default function App() {
         onEnquireClick={scrollToContact}
       />
 
-      {/* Hero Section matching Screenshot */}
-      <HeroSection
-        lang={lang}
-        onExploreCourses={scrollToCourses}
-        onStartTraining={scrollToContact}
-      />
+      {/* Conditional Rendering: Dedicated Full Course Detail Page vs Main Landing */}
+      {selectedCoursePage ? (
+        <CourseDetailPage
+          course={selectedCoursePage}
+          lang={lang}
+          onBack={handleBackToCourses}
+          onSelectOtherCourse={handleOpenCoursePage}
+          onSubmitInquiry={(data, tokenNumber) => {
+            setVoucherData({ data, token: tokenNumber });
+          }}
+        />
+      ) : (
+        <>
+          {/* Hero Section */}
+          <HeroSection
+            lang={lang}
+            onExploreCourses={scrollToCourses}
+            onStartTraining={scrollToContact}
+          />
 
-      {/* A Practical Start: 3 Pillars */}
-      <FeaturesStrip lang={lang} />
+          {/* Our Core Specialties (3 Pillars: Super Duplex Welder, 100% Quality, BTEB Certification) */}
+          <FeaturesStrip lang={lang} />
 
-      {/* Trade Course Catalog (10 key technical courses) */}
-      <CourseCatalog
-        lang={lang}
-        onSelectCourse={(course) => setActiveCourseModal(course)}
-        onEnquireCourse={handleSelectCourseForEnquiry}
-      />
+          {/* Course Packages & Fee Structure (Single Process 40k, Double Process 60k, Full Course 70k) */}
+          <CoursePricingSection
+            lang={lang}
+            onSelectPackage={(pkg) => {
+              const matched = COURSES.find((c) => c.id === 'welding-1g-6g');
+              if (matched) setInquiryCourse(matched);
+            }}
+            onEnquireClick={scrollToContact}
+          />
 
-      {/* Inside the Workshop: Real & High-Res Workshop Floor Gallery */}
-      <WorkshopGallery
-        lang={lang}
-        onTalkWithUs={scrollToContact}
-      />
+          {/* Trade Course Catalog (10 key technical courses) */}
+          <CourseCatalog
+            lang={lang}
+            onSelectCourse={handleOpenCoursePage}
+            onEnquireCourse={handleSelectCourseForEnquiry}
+          />
 
-      {/* Overseas Job Readiness & Trade Test Pathway */}
-      <OverseasTradeTest
-        lang={lang}
-        onPrepareClick={scrollToContact}
-      />
+          {/* Inside the Workshop: Real Workshop Floor Gallery */}
+          <WorkshopGallery
+            lang={lang}
+            onTalkWithUs={scrollToContact}
+          />
 
-      {/* Admissions Open / Course Inquiry Form matching screenshot */}
-      <InquiryForm
-        lang={lang}
-        preselectedCourse={inquiryCourse}
-        onSubmitSuccess={(data, tokenNumber) => {
-          setVoucherData({ data, token: tokenNumber });
-        }}
-      />
+          {/* Overseas Job Readiness & Trade Test Pathway */}
+          <OverseasTradeTest
+            lang={lang}
+            onPrepareClick={scrollToContact}
+          />
+
+          {/* Admissions Open / Course Inquiry Form */}
+          <InquiryForm
+            lang={lang}
+            preselectedCourse={inquiryCourse}
+            onSubmitSuccess={(data, tokenNumber) => {
+              setVoucherData({ data, token: tokenNumber });
+            }}
+          />
+        </>
+      )}
 
       {/* Clean Minimalist Footer */}
       <Footer lang={lang} />
-
-      {/* Interactive Course Detail Modal */}
-      {activeCourseModal && (
-        <CourseDetailModal
-          course={activeCourseModal}
-          lang={lang}
-          onClose={() => setActiveCourseModal(null)}
-          onApply={(course) => handleSelectCourseForEnquiry(course)}
-        />
-      )}
 
       {/* Admission Token Voucher Modal */}
       {voucherData && (
@@ -118,3 +188,4 @@ export default function App() {
     </div>
   );
 }
+

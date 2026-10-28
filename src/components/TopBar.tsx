@@ -38,12 +38,16 @@ export const TopBar: React.FC<TopBarProps> = ({ lang, onToggleLang, onEnquireCli
           </a>
 
           {/* Clean Nav Links (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
             <a href="#courses" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
               {isBn ? 'কোর্সসমূহ' : 'Trade Courses'}
             </a>
+            <a href="#fees" className="hover:text-slate-900 font-semibold text-[#0F243E] transition-colors whitespace-nowrap shrink-0 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E59E24]" />
+              <span>{isBn ? 'কোর্স ফি ও প্যাকেজ' : 'Courses & Fees'}</span>
+            </a>
             <a href="#about" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
-              {isBn ? 'কেন আমরা' : 'Why Al-Zahid'}
+              {isBn ? 'আমাদের বিশেষত্ব' : 'Our Specialties'}
             </a>
             <a href="#workshop" className="hover:text-slate-900 transition-colors whitespace-nowrap shrink-0">
               {isBn ? 'ওয়ার্কশপ গ্যালারি' : 'Workshop Floor'}
@@ -100,11 +104,19 @@ export const TopBar: React.FC<TopBarProps> = ({ lang, onToggleLang, onEnquireCli
                 {isBn ? 'কোর্সসমূহ (১০টি ট্রেড)' : 'Trade Courses (10 Trades)'}
               </a>
               <a
+                href="#fees"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-slate-100 font-bold text-[#0F243E] hover:text-[#E59E24] flex items-center justify-between"
+              >
+                <span>{isBn ? 'কোর্স ফি ও প্যাকেজ (৪০,০০০৳ - ৭০,০০০৳)' : 'Course Packages & Fees'}</span>
+                <span className="text-[10px] bg-[#E59E24] text-slate-950 px-2 py-0.5 rounded font-bold">{isBn ? 'নতুন' : 'Fees'}</span>
+              </a>
+              <a
                 href="#about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-slate-100 hover:text-[#E59E24]"
               >
-                {isBn ? 'কেন আল-জাহিদ বেছে নেবেন' : 'Why Choose Al-Zahid'}
+                {isBn ? 'আমাদের বিশেষত্ব (সুপার ডুপ্লেক্স ট্রেইনার)' : 'Our Specialties (Super Duplex Welder)'}
               </a>
               <a
                 href="#workshop"

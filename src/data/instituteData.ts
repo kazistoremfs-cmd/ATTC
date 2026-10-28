@@ -1,4 +1,4 @@
-import { Course, GalleryItem } from '../types/institute';
+import { Course, GalleryItem, FeePackage } from '../types/institute';
 
 export const INSTITUTE_INFO = {
   nameEn: 'Al-Zahid Technical Training Center',
@@ -308,39 +308,39 @@ export const COURSES: Course[] = [
     targetCountriesBn: ['সৌদি আরব', 'কাতার', 'ইউএই', 'মালয়েশিয়া', 'সিঙ্গাপুর']
   },
   {
-    id: 'plastering',
+    id: 'plumbing',
     number: '09',
-    titleEn: 'Plastering',
-    titleBn: 'প্লাস্টার',
+    titleEn: 'Plumbing',
+    titleBn: 'প্লাম্বার',
     category: 'civil',
-    image: './assets/images/course_plastering_wall_1792776964332.jpg',
-    taglineEn: 'Interior and exterior wall plastering, screeding, damp-proofing, and level finishing',
-    taglineBn: 'দেওয়াল ও ছাদের নিখুঁত প্লাস্টার, ফ্লোর স্ক্রিড ও স্মুথ ফিনিশিং',
-    durationEn: '1 Month',
-    durationBn: '১ মাস',
-    practicalPercent: 90,
-    descriptionEn: 'Vocational practical course covering cement-sand mix proportions, plumb alignment, corner beading, ceiling plastering, floor screed leveling, and waterproofing preparation.',
-    descriptionBn: 'সিমেন্ট-বালির সঠিক অনুপাত, দেওয়ালে ও সিলিংয়ে মসৃণ প্লাস্টার, মেঝের স্ক্রিড লেভেলিং, কর্নার বিড স্থাপন এবং ওয়াটারপ্রুফিংয়ের কাজের বাস্তব প্রশিক্ষণ।',
+    image: './assets/images/course_plumber.jpg',
+    taglineEn: 'Sanitary plumbing, PPR/uPVC water piping, drainage layout, and fixture installation',
+    taglineBn: 'স্যানিটারি প্লাম্বিং, PPR/uPVC পাইপলাইন ও বাথরুম ফিটিংস ইনস্টলেশন',
+    durationEn: '1.5 Months',
+    durationBn: '১.৫ মাস',
+    practicalPercent: 85,
+    descriptionEn: 'Professional hands-on training in domestic and commercial sanitary plumbing. Master cold and hot water piping, PPR heat fusion welding, uPVC drainage slopes, sanitary fixture fitting, leak detection, and water pressure testing.',
+    descriptionBn: 'আবাসিক ও বাণিজ্যিক স্যানিটারি প্লাম্বিংয়ের পূর্ণাঙ্গ প্রশিক্ষণ। ঠান্ডা ও গরম পানির লাইন, পিপিআর (PPR) পাইপ জয়েন্টিং, ড্রেনেজ পাইপ স্লোপ নির্ধারণ, কমোড, বেসিন ও শাওয়ার ফিটিংস স্থাপন এবং ওয়াটার প্রেশার টেস্টের বাস্তবমুখী কোর্স।',
     syllabusEn: [
-      'Cement mortar ratios (1:3, 1:4), hydration time, and workability testing',
-      'Surface preparation: chipping, water soaking, and spatterdash slurry coat',
-      'Plumb line, level dots (gaj), and aluminum straight edge screeding',
-      'External weather-proof plastering and groove making',
-      'Smooth trowel finish, sponge floating, and curing protocols'
+      'Plumbing safety, tools handling, and reading architectural plumbing schematics',
+      'PPR pipe cutting, beveling, and socket heat fusion welding techniques',
+      'uPVC / PVC drainage pipe layout, slope calculation, and solvent cement jointing',
+      'Installation of sanitary fixtures: commodes, washbasins, mixers, valves, and water heaters',
+      'Hydrostatic pressure testing, leak troubleshooting, and sewer ventilation systems'
     ],
     syllabusBn: [
-      'সিমেন্ট-বালির অনুপাত (১:৩, ১:৪) ও ওয়াটার-সিমেন্ট রেশিও নিয়ন্ত্রণ',
-      'সারফেস প্রিপারেশন: চিপিং, পানি ভেজানো ও স্লারি কোট প্রয়োগ',
-      'প্লাম্ব লাইন, গজ বা লেভেল ডট দিয়ে নিখুঁত সমান দেওয়াল তৈরি',
-      'বাইরের দেওয়ালে ওয়েদারপ্রুফ প্লাস্টার ও খাঁজ (গ্রুভ) কাটার কৌশল',
-      'স্পঞ্জ ফিনিশ ও স্মুথ ট্রাওয়েল ফিনিশিং এবং কিউরিং পদ্ধতি'
+      'প্লাম্বিং কাজের নিরাপত্তা, টুলস ব্যবহার এবং ড্রয়িং ও পাইপিং লেআউট নকশা পাঠ',
+      'পিপিআর (PPR) পাইপ কাটিং ও হিট ফিউশন মেশিনে নিখুঁত জয়েন্টিং পদ্ধতি',
+      'uPVC ও পিভিসি ড্রেনেজ পাইপলাইন লেআউট, সঠিক ঢাল (Slope) নির্ধারণ ও ফিটিং',
+      'স্যানিটারি ফিটিংস: কমোড, বেসিন, মিক্সার কল, গ্যাসকেট, ওয়াটার হিটার ও পাম্প স্থাপন',
+      'হাইড্রোস্ট্যাটিক প্রেশার টেস্ট, পাইপলাইন লিকেজ সমাধান ও ভেন্টিলেশন সিস্টেম'
     ],
-    equipmentEn: ['Plastering Trowels', 'Aluminum Screed Bars', 'Corner Floats', 'Spirit Levels'],
-    equipmentBn: ['প্লাস্টারিং ট্রাওয়েল (কর্ণিক)', 'অ্যালুমিনিয়াম গজ বার', 'কর্নার ফ্লোট', 'স্পিরিট লেভেল'],
-    overseasScopeEn: 'Continuous demand in residential and hotel construction projects across Saudi Arabia and the Gulf.',
-    overseasScopeBn: 'সৌদি আরব ও মধ্যপ্রাচ্যের আবাসন, হোটেল ও রিয়েল এস্টেট প্রজেক্টে সারাবছর কাজের সুযোগ।',
-    targetCountriesEn: ['Saudi Arabia', 'UAE', 'Oman', 'Qatar'],
-    targetCountriesBn: ['সৌদি আরব', 'ইউএই', 'ওমান', 'কাতার']
+    equipmentEn: ['PPR Heat Fusion Machines', 'Pipe Wrenches & Cutters', 'Pressure Testing Pumps', 'Die Stocks & Threaders'],
+    equipmentBn: ['পিপিআর হিট ফিউশন মেশিন', 'পাইপ রেঞ্জ ও কাটার', 'প্রেশার টেস্টিং পাম্প', 'থ্রেডিং ডাই কিট'],
+    overseasScopeEn: 'Tremendous employment demand in Middle East construction (Saudi Arabia, UAE, Qatar) for villas, hotels, and high-rise towers.',
+    overseasScopeBn: 'সৌদি আরব, সংযুক্ত আরব আমিরাত ও কাতারের মেগাপ্রজেক্ট, আবাসিক টাওয়ার ও বিলাসবহুল ভবনে প্লাম্বারের ব্যাপক কাজের সুযোগ ও উচ্চ বেতন।',
+    targetCountriesEn: ['Saudi Arabia', 'UAE', 'Qatar', 'Oman', 'Kuwait'],
+    targetCountriesBn: ['সৌদি আরব', 'ইউএই', 'কাতার', 'ওমান', 'কুয়েত']
   },
   {
     id: 'rigging',
@@ -440,25 +440,125 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 
 export const KEY_BENEFITS = [
   {
-    id: 'bteb',
-    titleEn: 'BTEB Approved Certification & EIIN',
-    titleBn: 'কারিগরি শিক্ষা বোর্ড (BTEB) সনদ ও EIIN',
-    descEn: 'Govt. recognized registration (BTEB Code: 64033, EIIN: 135557) validating technical competency and qualifying for government and foreign embassy attestation.',
-    descBn: 'সরকারি রেজিস্ট্রেশন কোড ৬৪০৩৩ ও EIIN ১৩৫৫৫৭ দ্বারা অনুমোদিত বৈধ সনদ, যা দেশ-বিদেশের যেকোনো দূতাবাস ও প্রতিষ্ঠানে স্বীকৃত।'
+    id: 'trainer',
+    titleEn: 'Expert Trainer (Super Duplex Welder)',
+    titleBn: 'অভিজ্ঞ ট্রেইনার (Super Duplex Welder)',
+    descEn: 'Our lead instructor is a certified expert Super Duplex Welder with extensive international industrial fabrication experience.',
+    descBn: 'আমাদের ট্রেইনার একজন দক্ষ সুপার ডুপ্লেক্স ওয়েল্ডার (Super Duplex Welder)। যিনি আন্তর্জাতিক মেগা প্রজেক্টের বাস্তব অভিজ্ঞতাসম্পন্ন।'
   },
   {
-    id: 'practical',
-    titleEn: 'Hands-on Workshop Experience',
-    titleBn: '৮৫-৯০% সরাসরি প্র্যাকটিক্যাল প্রশিক্ষণ',
-    descEn: 'Practice daily on industrial welding booths, heavy steel beams, pipe jigs, and real power equipment under master instructors.',
-    descBn: 'মাস্টার ট্রেইনারদের তত্ত্বাবধানে প্রতিদিন আধুনিক ওয়েল্ডিং বুথ, হেভি স্টিল ও পাইপ নিয়ে বাস্তব ওয়ার্কশপে দীর্ঘ সময় কাজ শেখার সুযোগ।'
+    id: 'quality',
+    titleEn: '100% Quality-Focused Training',
+    titleBn: '১০০% মানসম্মত ও নিখুঁত প্রশিক্ষণ',
+    descEn: 'Uncompromising standard in practical technique and workmanship, ensuring 100% quality and X-Ray defect-free joints.',
+    descBn: 'কাজের গুণগত মান ও প্র্যাকটিসে শতভাগ কোয়ালিটি নিশ্চিত করা হয়। প্রতিটি জয়েন্টে আন্তর্জাতিক মানদণ্ড বজায় রাখা হয়।'
   },
   {
-    id: 'overseas',
-    titleEn: 'Overseas Job & Trade Test Support',
-    titleBn: 'বিদেশে চাকরি ও ট্রেড টেস্ট প্রস্তুতি',
-    descEn: 'Dedicated training tailored to Saudi Aramco, ADNOC, QatarEnergy, and Singapore trade test standards with direct agency interview guidance.',
-    descBn: 'সৌদি আরামকো, এডনক ও কাতারএনার্জি স্ট্যান্ডার্ডে ট্রেড টেস্ট পাস করার বিশেষ প্রস্তুতি এবং রিক্রুটিং এজেন্সি ইন্টারভিউ সাপোর্ট।'
+    id: 'certificate',
+    titleEn: 'Govt. Recognized Certification (BTEB)',
+    titleBn: 'সরকারি স্বীকৃতিপ্রাপ্ত সার্টিফিকেট',
+    descEn: 'Upon successful course completion, trainees receive valid certificates under Bangladesh Technical Education Board (BTEB) and Institute.',
+    descBn: 'কোর্স সফলভাবে শেষ করার পর বাংলাদেশ কারিগরি শিক্ষা বোর্ডের অধীনে সরকারি এবং ইনস্টিটিউট থেকে ভ্যালিড সার্টিফিকেট প্রদান করা হবে।'
+  }
+];
+
+export const FEE_PACKAGES: FeePackage[] = [
+  {
+    id: 'single-process',
+    titleBn: 'সিঙ্গেল প্রসেস (Arc 1G - 6G)',
+    titleEn: 'Single Process (Arc 1G to 6G)',
+    subtitleBn: 'স্ট্রাকচারাল প্লেট ও হাই-প্রেসার পাইপ আর্ক ওয়েল্ডিং',
+    subtitleEn: 'SMAW Shielded Metal Arc Welding Foundation to 6G Pipe',
+    feeAmount: 40000,
+    feeDisplayBn: '৪০,০০০ টাকা',
+    feeDisplayEn: 'BDT 40,000',
+    processBn: 'SMAW আর্ক ওয়েল্ডিং (১G হতে ৬G)',
+    processEn: 'SMAW Arc Welding (1G to 6G)',
+    durationBn: '২ মাস',
+    durationEn: '2 Months',
+    badgeBn: 'মাত্র ৪০,০০০ টাকা',
+    badgeEn: 'Only BDT 40,000',
+    featuresBn: [
+      '১G, ২G, ৩G, ৪G প্লেট এবং ১G, ২G, ৫G, ৬G পাইপ পজিশন',
+      'দক্ষ সুপার ডুপ্লেক্স ওয়েল্ডার ট্রেইনারের সরাসরি তত্ত্বাবধান',
+      '১০০% মানসম্মত প্র্যাকটিক্যাল কোয়ালিটি ও ড্রয়িং রিডিং',
+      'বাংলাদেশ কারিগরি শিক্ষা বোর্ডের অধীনে সরকারি এবং ভ্যালিড সার্টিফিকেট',
+      'ফ্রি সেফটি কিট (PPE), হেলমেট, গ্লাভস ও ওয়ার্কশপ সরঞ্জাম',
+      'সৌদি আরামকো ও গালফ ক্লায়েন্ট ট্রেড টেস্টের পূর্ণ প্রস্তুতি'
+    ],
+    featuresEn: [
+      'Plate positions (1G-4G) & Pipe positions (1G, 2G, 5G, 6G 45°)',
+      'Mentored directly by expert Super Duplex Welder',
+      '100% quality-focused hands-on training guarantee',
+      'Govt. BTEB affiliated valid certificate & Institute certificate',
+      'Complimentary safety gear kit (PPE), helmet, and gloves',
+      'Saudi Aramco and Gulf client trade test preparation'
+    ]
+  },
+  {
+    id: 'double-process',
+    titleBn: 'ডাবল প্রসেস (SMAW & GTAW)',
+    titleEn: 'Double Process (SMAW & GTAW / TIG)',
+    subtitleBn: 'আর্ক ওয়েল্ডিং + আর্গন টিআইজি ওয়েল্ডিং ডুয়াল স্পেশালাইজেশন',
+    subtitleEn: 'SMAW Arc + GTAW Argon TIG High-Pressure Piping Combo',
+    feeAmount: 60000,
+    feeDisplayBn: '৬০,০০০ টাকা',
+    feeDisplayEn: 'BDT 60,000',
+    processBn: 'SMAW আর্ক + GTAW আর্গন টিআইজি',
+    processEn: 'SMAW (Arc) + GTAW (Argon TIG)',
+    durationBn: '২.৫ মাস',
+    durationEn: '2.5 Months',
+    isPopular: true,
+    badgeBn: 'সবচেয়ে জনপ্রিয় · মাত্র ৬০,০০০ টাকা',
+    badgeEn: 'Most Popular · Only BDT 60,000',
+    featuresBn: [
+      'আর্ক (১G-৬G) + আর্গন টিআইজি রুট ও ক্যাপ ওয়েল্ডিং',
+      'স্টেইনলেস স্টিল (SS) ও কার্বন স্টিল পাইপ পার্জিং টেকনিক',
+      'দক্ষ সুপার ডুপ্লেক্স ওয়েল্ডার ট্রেইনারের নিবিড় পরিচর্যা',
+      '১০০% মানসম্মত প্রশিক্ষণ ও এক্স-রে কোয়ালিটি নিশ্চয়তা',
+      'বাংলাদেশ কারিগরি শিক্ষা বোর্ডের অধীনে সরকারি এবং ভ্যালিড সার্টিফিকেট',
+      'গালফ তেল-গ্যাস, রিফাইনারি ও শিপইয়ার্ড চাকরির সরাসরি সহায়তা'
+    ],
+    featuresEn: [
+      'Arc (1G-6G) + Argon TIG root, hot pass and cap welding',
+      'Stainless Steel (SS) and Carbon Steel pipe internal purging',
+      'Trained directly by certified Super Duplex Welder',
+      '100% quality-focused training ensuring defect-free welds',
+      'Govt. BTEB affiliated valid certificate & Institute certificate',
+      'Priority client trade test coaching for Gulf & Singapore'
+    ]
+  },
+  {
+    id: 'full-course',
+    titleBn: 'ফুল কোর্স (SMAW + GTAW + FCAW)',
+    titleEn: 'Full Course (SMAW + GTAW + FCAW)',
+    subtitleBn: 'আর্ক + আর্গন টিআইজি + ফ্লাক্স কোর মিগ কমপ্লিট মাস্টার প্রোগ্রাম',
+    subtitleEn: 'Complete Multi-Process Master Welding Program',
+    feeAmount: 70000,
+    feeDisplayBn: '৭০,০০০ টাকা',
+    feeDisplayEn: 'BDT 70,000',
+    processBn: 'SMAW + GTAW + FCAW (কমপ্লিট প্যাকেজ)',
+    processEn: 'SMAW Arc + GTAW TIG + FCAW Flux-Core MIG',
+    durationBn: '৩ মাস',
+    durationEn: '3 Months',
+    badgeBn: 'সর্বোচ্চ ক্যারিয়ার ভ্যালু · মাত্র ৭০,০০০ টাকা',
+    badgeEn: 'Highest Overseas Pay · Only BDT 70,000',
+    featuresBn: [
+      'SMAW আর্ক + GTAW আর্গন + FCAW ফ্লাক্স কোর মিগ — সম্পূর্ণ প্যাকেজ',
+      'আন্তর্জাতিক হেভি স্ট্রাকচার, প্রেসার ভেসেল ও পাইপলাইন প্রজেক্ট',
+      'দক্ষ সুপার ডুপ্লেক্স ওয়েল্ডার ট্রেইনারের স্পেশাল মেন্টরশিপ',
+      '১০০% মানসম্মত প্রশিক্ষণ ও শতভাগ কোয়ালিটি ফ্লোর টেস্ট',
+      'বাংলাদেশ কারিগরি শিক্ষা বোর্ডের অধীনে সরকারি এবং ভ্যালিড সার্টিফিকেট',
+      'মধ্যপ্রাচ্য ও ইউরোপ (রোমানিয়া/পোল্যান্ড) উচ্চ বেতনের চাকরির সুযোগ'
+    ],
+    featuresEn: [
+      'Comprehensive triple master certification: SMAW + GTAW + FCAW',
+      'Heavy structural fabrication, pressure vessels & pipelines',
+      'Special 1-on-1 mentorship by Master Super Duplex Welder',
+      '100% quality-focused training and defect-free testing',
+      'Govt. BTEB affiliated valid certificate & Institute certificate',
+      'Direct qualification for top-tier Middle East & European jobs'
+    ]
   }
 ];
 
@@ -468,3 +568,4 @@ export const STATS = [
   { value: '10+', labelEn: 'Technical Trade Courses', labelBn: 'কারিগরী ট্রেড কোর্স' },
   { value: '85%+', labelEn: 'Practical Workshop Hours', labelBn: 'হাতে-কলমে প্রশিক্ষণ' }
 ];
+

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, MessageSquare, MapPin, ArrowRight, ShieldCheck, Check, Clock } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, ArrowRight, ShieldCheck, Check, Clock, UserCheck, Award } from 'lucide-react';
 import { Course, InquiryFormData, Language } from '../types/institute';
-import { COURSES, INSTITUTE_INFO } from '../data/instituteData';
+import { COURSES, INSTITUTE_INFO, FEE_PACKAGES } from '../data/instituteData';
 
 interface InquiryFormProps {
   lang: Language;
@@ -199,6 +199,40 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
               </div>
             </div>
 
+            {/* Our Specialties Box */}
+            <div className="p-5 bg-[#0C1A2C] border border-[#E59E24]/30 rounded space-y-3">
+              <span className="text-[11px] font-bold text-[#E59E24] uppercase tracking-wider block flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5" />
+                <span>{isBn ? 'আল-জাহিদ সেন্টারের ৩টি বিশেষত্ব:' : 'Our 3 Core Specialties:'}</span>
+              </span>
+
+              <div className="space-y-2 text-xs text-slate-300">
+                <div className="flex items-start gap-2">
+                  <span className="text-[#E59E24] font-bold">✓</span>
+                  <div>
+                    <strong className="text-white">{isBn ? 'অভিজ্ঞ ট্রেইনার:' : 'Experienced Trainer:'}</strong>{' '}
+                    <span>{isBn ? 'আমাদের ট্রেইনার একজন দক্ষ সুপার ডুপ্লেক্স ওয়েল্ডার (Super Duplex Welder)।' : 'Our trainer is a certified Super Duplex Welder.'}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <span className="text-emerald-400 font-bold">✓</span>
+                  <div>
+                    <strong className="text-white">{isBn ? '১০০% মানসম্মত প্রশিক্ষণ:' : '100% Quality Standards:'}</strong>{' '}
+                    <span>{isBn ? 'কাজের গুণগত মান ও প্র্যাকটিসে শতভাগ কোয়ালিটি নিশ্চিত করা হয়।' : 'Zero compromise in quality & practical execution.'}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <span className="text-amber-300 font-bold">✓</span>
+                  <div>
+                    <strong className="text-white">{isBn ? 'সরকারি সার্টিফিকেট:' : 'Govt. Valid Certificate:'}</strong>{' '}
+                    <span>{isBn ? 'কোর্স শেষে কারিগরি শিক্ষা বোর্ডের অধীনে সরকারি এবং ইনস্টিটিউট ভ্যালিড সনদ।' : 'Official BTEB affiliated and institute verified certificate.'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/* Right Column: Form Card matching exact screenshot */}
@@ -270,19 +304,30 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({
                 {/* Selected Course Dropdown */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                    {isBn ? 'নির্বাচিত কোর্স (Selected Course)' : 'Selected Course'}
+                    {isBn ? 'নির্বাচিত কোর্স বা প্যাকেজ (Selected Course / Package)' : 'Selected Course / Package'}
                   </label>
                   <select
                     value={formData.selectedCourseId}
                     onChange={(e) => setFormData({ ...formData, selectedCourseId: e.target.value })}
-                    className="w-full px-4 py-3 rounded border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0F243E] transition-all cursor-pointer"
+                    className="w-full px-4 py-3 rounded border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0F243E] transition-all cursor-pointer font-medium"
                   >
-                    <option value="">{isBn ? 'কোর্স নির্বাচন করুন' : 'Choose a course'}</option>
-                    {COURSES.map((course) => (
-                      <option key={course.id} value={course.id}>
-                        {course.number}. {isBn ? course.titleBn : course.titleEn} ({course.durationBn})
-                      </option>
-                    ))}
+                    <option value="">{isBn ? 'কোর্স বা প্যাকেজ নির্বাচন করুন' : 'Choose a course or package'}</option>
+                    
+                    <optgroup label={isBn ? '★ জনপ্রিয় ওয়েল্ডিং প্যাকেজ ও ফি' : '★ Featured Welding Fee Packages'}>
+                      {FEE_PACKAGES.map((pkg) => (
+                        <option key={pkg.id} value={pkg.id}>
+                          {isBn ? `${pkg.titleBn} — মাত্র ${pkg.feeDisplayBn}` : `${pkg.titleEn} — ${pkg.feeDisplayEn}`}
+                        </option>
+                      ))}
+                    </optgroup>
+
+                    <optgroup label={isBn ? 'অন্যান্য কারিগরি কোর্সসমূহ' : 'Other Technical Trade Courses'}>
+                      {COURSES.map((course) => (
+                        <option key={course.id} value={course.id}>
+                          {course.number}. {isBn ? course.titleBn : course.titleEn} ({isBn ? course.durationBn : course.durationEn})
+                        </option>
+                      ))}
+                    </optgroup>
                   </select>
                   {formErrors.selectedCourseId && (
                     <span className="text-xs text-red-600 mt-1 block">{formErrors.selectedCourseId}</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { X, CheckCircle2, Download, Printer, Share2, Award, Phone, MapPin, MessageSquare } from 'lucide-react';
 import { InquiryFormData, Language, Course } from '../types/institute';
-import { INSTITUTE_INFO, COURSES } from '../data/instituteData';
+import { INSTITUTE_INFO, COURSES, FEE_PACKAGES } from '../data/instituteData';
 
 interface AdmissionTokenModalProps {
   data: InquiryFormData;
@@ -18,6 +18,13 @@ export const AdmissionTokenModal: React.FC<AdmissionTokenModalProps> = ({
 }) => {
   const isBn = lang === 'bn';
   const selectedCourse = COURSES.find((c) => c.id === data.selectedCourseId);
+  const selectedPackage = FEE_PACKAGES.find(
+    (p) => p.id === data.selectedCourseId || `pkg-${p.id}` === data.selectedCourseId
+  );
+
+  const displayCourseName = selectedPackage
+    ? (isBn ? `${selectedPackage.titleBn} (ফি: ${selectedPackage.feeDisplayBn})` : `${selectedPackage.titleEn} (Fee: ${selectedPackage.feeDisplayEn})`)
+    : (selectedCourse ? (isBn ? selectedCourse.titleBn : selectedCourse.titleEn) : (isBn ? 'সাধারণ কারিগরি কোর্স' : 'General Technical Course'));
 
   const handlePrint = () => {
     window.print();
@@ -25,10 +32,11 @@ export const AdmissionTokenModal: React.FC<AdmissionTokenModalProps> = ({
 
   const handleWhatsAppForward = () => {
     const text = isBn
-      ? `আসসালামু আলাইকুম। আমি আল-জাহিদ সেন্টারে অনলাইনে ভর্তি এনকোয়ারি জমা দিয়েছি।\nটোকেন নম্বর: ${tokenNumber}\nনাম: ${data.fullName}\nফোন: ${data.phoneNumber}\nকোর্স: ${selectedCourse ? selectedCourse.titleBn : 'সাধারণ'}\nঠিকানা: ${data.address}\n\nদয়া করে পরবর্তী ব্যাচ ও ফি সংক্রান্ত তথ্য প্রদান করুন।`
-      : `Hello, I submitted an admission enquiry at Al-Zahid Technical Training Center.\nToken ID: ${tokenNumber}\nName: ${data.fullName}\nPhone: ${data.phoneNumber}\nSelected Trade: ${selectedCourse ? selectedCourse.titleEn : 'General'}\nAddress: ${data.address}\n\nPlease share the admission procedure and reporting schedule.`;
+      ? `আসসালামু আলাইকুম। আমি আল-জাহিদ সেন্টারে অনলাইনে ভর্তি এনকোয়ারি জমা দিয়েছি।\nটোকেন নম্বর: ${tokenNumber}\nনাম: ${data.fullName}\nফোন: ${data.phoneNumber}\nকোর্স/প্যাকেজ: ${displayCourseName}\nঠিকানা: ${data.address}\n\nদয়া করে পরবর্তী ব্যাচ ও ভর্তি নিশ্চিতকরণের তথ্য প্রদান করুন।`
+      : `Hello, I submitted an admission enquiry at Al-Zahid Technical Training Center.\nToken ID: ${tokenNumber}\nName: ${data.fullName}\nPhone: ${data.phoneNumber}\nSelected Course/Package: ${displayCourseName}\nAddress: ${data.address}\n\nPlease share the admission procedure and reporting schedule.`;
 
-    window.open(`https://wa.me/${INSTITUTE_INFO.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    const url = `https://wa.me/${INSTITUTE_INFO.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
   };
 
   return (
@@ -102,7 +110,7 @@ export const AdmissionTokenModal: React.FC<AdmissionTokenModalProps> = ({
             <div className="flex items-center justify-between pb-2 border-b border-slate-200">
               <span className="text-slate-500">{isBn ? 'নির্বাচিত ট্রেড:' : 'Selected Trade:'}</span>
               <span className="font-bold text-[#E59E24] text-right">
-                {selectedCourse ? (isBn ? selectedCourse.titleBn : selectedCourse.titleEn) : 'Not specified'}
+                {displayCourseName}
               </span>
             </div>
 

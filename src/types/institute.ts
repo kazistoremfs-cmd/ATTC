@@ -45,3 +45,24 @@ export interface InquiryFormData {
   batchPreference: 'regular' | 'friday' | 'fast_track';
   notes: string;
 }
+
+export interface FeePackage {
+  id: string;
+  titleEn: string;
+  titleBn: string;
+  subtitleEn: string;
+  subtitleBn: string;
+  feeAmount: number;
+  feeDisplayEn: string;
+  feeDisplayBn: string;
+  processEn: string;
+  processBn: string;
+  durationEn: string;
+  durationBn: string;
+  featuresEn: string[];
+  featuresBn: string[];
+  isPopular?: boolean;
+  badgeEn?: string;
+  badgeBn?: string;
+}
+
