@@ -28,6 +28,13 @@ export default function App() {
     document.documentElement.lang = lang;
   }, [lang]);
 
+  // Ensure website starts cleanly at the very top (Hero section) on load
+  useEffect(() => {
+    if (!window.location.hash || window.location.hash === '#' || window.location.hash === '') {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   // Handle URL hash changes for deep linking to course pages
   useEffect(() => {
     const handleHashChange = () => {

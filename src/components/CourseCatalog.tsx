@@ -71,7 +71,11 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({
     if (carouselRef.current) {
       const card = carouselRef.current.children[index] as HTMLElement;
       if (card) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        const container = carouselRef.current;
+        container.scrollTo({
+          left: card.offsetLeft - container.offsetLeft,
+          behavior: 'smooth'
+        });
       }
     }
   };

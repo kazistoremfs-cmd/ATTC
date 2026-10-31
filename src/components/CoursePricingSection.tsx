@@ -27,8 +27,8 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
 }) => {
   const isBn = lang === 'bn';
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(1); // Default to middle card (most popular)
-  const [canScrollLeft, setCanScrollLeft] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0); // Start at first card cleanly
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const updateScrollButtons = () => {
@@ -60,15 +60,9 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
     const node = carouselRef.current;
     if (!node) return;
     node.addEventListener('scroll', updateScrollButtons, { passive: true });
-    
-    // Initial centering to popular card (idx 1) on load
-    const timer = setTimeout(() => {
-      scrollToIndex(1);
-      updateScrollButtons();
-    }, 150);
+    updateScrollButtons();
 
     return () => {
-      clearTimeout(timer);
       node.removeEventListener('scroll', updateScrollButtons);
     };
   }, []);
@@ -76,11 +70,14 @@ export const CoursePricingSection: React.FC<CoursePricingSectionProps> = ({
   const scrollToIndex = (index: number) => {
     if (!carouselRef.current) return;
     const items = carouselRef.current.children;
-    if (items[index]) {
-      (items[index] as HTMLElement).scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
+    const target = items[index] as HTMLElement;
+    if (target) {
+      const container = carouselRef.current;
+      // Scroll horizontal carousel container ONLY; NEVER scroll parent window
+      const targetScrollLeft = target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2;
+      container.scrollTo({
+        left: Math.max(0, targetScrollLeft),
+        behavior: 'smooth'
       });
       setActiveIndex(index);
     }
